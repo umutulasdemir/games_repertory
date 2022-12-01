@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -17,6 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        //let gamesVC = UINavigationController(rootViewController: ViewController())
+        //let favoritesVC = UINavigationController(rootViewController: FavoritesViewController())
+        
+        //let tabBar = UITabBarController()
+        //tabBar.viewControllers = [gamesVC,favoritesVC]
+        
+        //window = UIWindow(frame: scene.coordinateSpace.bounds)
+        //window?.windowScene = scene
+        //window?.rootViewController = tabBar
+        //window?.makeKeyAndVisible()
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
