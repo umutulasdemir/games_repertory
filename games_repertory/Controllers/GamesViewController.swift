@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GamesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private var gameViewModel = GameViewModel()
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate{
+extension GamesViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return gameViewModel.numberOfRowsInSection(section: section)
         }
