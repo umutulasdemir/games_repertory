@@ -15,7 +15,6 @@ class GameViewModel {
     
     func fetchGamesData(completion: @escaping () -> ()) {
         
-        
         let gamesUrl = "https://api.rawg.io/api/games?key=3be8af6ebf124ffe81d90f514e59856c"
         // weak self - prevent retain cycles
         print("Fetching games data..")
@@ -31,6 +30,20 @@ class GameViewModel {
             }
         }
     }
+    func clearData(){
+        var temp = [Game]()
+        temp.append(contentsOf: targetgGames)
+        targetgGames.removeAll()
+    }
+    func addGame(game: Game){
+        targetgGames.append(game)
+    }
+    func getGames()->[Game]{
+        return targetgGames
+    }
+    func getCount()->Int{
+        return targetgGames.count
+    }
     
     func numberOfRowsInSection(section: Int) -> Int {
         if targetgGames.count != 0 {
@@ -43,4 +56,5 @@ class GameViewModel {
     func cellForRowAt (indexPath: IndexPath) -> Game {
         return targetgGames[indexPath.row]
     }
+    
 }

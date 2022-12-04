@@ -148,6 +148,31 @@
                                             <outlet property="mcScore" destination="G6l-TU-xrI" id="V9x-ed-gMM"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="noCell" rowHeight="136" id="8j4-Ff-SnG" customClass="GameCell" customModule="games_repertory" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="230" width="393" height="136"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8j4-Ff-SnG" id="hdB-X8-fMm">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="136"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No game has been searched." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE3-5R-JJ7">
+                                                    <rect key="frame" x="0.0" y="16" width="393" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="FE3-5R-JJ7" secondAttribute="trailing" id="Dah-a5-zz1"/>
+                                                <constraint firstItem="FE3-5R-JJ7" firstAttribute="leading" secondItem="hdB-X8-fMm" secondAttribute="leading" id="TUg-v1-hUv"/>
+                                                <constraint firstAttribute="bottom" secondItem="FE3-5R-JJ7" secondAttribute="bottom" constant="93" id="a4p-ee-wmk"/>
+                                                <constraint firstItem="FE3-5R-JJ7" firstAttribute="top" secondItem="hdB-X8-fMm" secondAttribute="top" constant="16" id="wp4-BK-q4W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gameName" destination="FE3-5R-JJ7" id="ECy-Gw-GGe"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -156,6 +181,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Games" id="zsc-HR-A7Y"/>
                     <connections>
+                        <outlet property="searchBar" destination="JGb-Za-dKf" id="OcM-1v-n3X"/>
                         <outlet property="tableView" destination="JGb-Za-dKf" id="maw-hf-njL"/>
                     </connections>
                 </viewController>
