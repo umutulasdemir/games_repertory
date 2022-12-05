@@ -24,17 +24,28 @@ struct Genre: Decodable {
 }
 struct Game: Decodable {
     
+    let id: Int?
     let name: String?
     let metacritic: Int?
     let genres: [Genre]?
     let background_image: String?
     
     private enum CodingKeys: String, CodingKey {
+        case id
         case name
         case metacritic
         case genres
         case background_image
     }
+}
+
+struct DetailGame: Decodable {
+    let description: String?
+    let background_image: String?
     
+    private enum CodingKeys: String, CodingKey {
+        case description
+        case background_image
+    }
     
 }

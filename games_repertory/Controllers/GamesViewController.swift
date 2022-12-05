@@ -9,7 +9,6 @@ import UIKit
 
 class GamesViewController: UIViewController,UISearchBarDelegate {
     
-    
     @IBOutlet weak var searchBar: UITableView!
     @IBOutlet weak var tableView: UITableView!
     private var gameViewModel = GameViewModel()
@@ -73,5 +72,21 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
             self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         }
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(identifier:
+        "DetailGameViewController") as?
+            DetailGameViewController{
+            print("hey", targetgGames.count + targetgGames[indexPath.row].id!)
+            let temp = gameViewModel.getGames()
+            var i = 0
+            for game in targetgGames{
+                if game.id == temp[indexPath.row].id {
+                    vc.id = targetgGames[i].id!
+                }
+                i+=1
+            }
+            self.navigationController?.pushViewController(vc,animated:true)
+        }
     }
 }

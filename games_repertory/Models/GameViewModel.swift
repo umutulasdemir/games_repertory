@@ -11,11 +11,11 @@ class GameViewModel {
     
     private var apiService = ApiService()
     private var targetgGames = [Game]()
-    
+    private let apiKey = "3be8af6ebf124ffe81d90f514e59856c"
     
     func fetchGamesData(completion: @escaping () -> ()) {
         
-        let gamesUrl = "https://api.rawg.io/api/games?key=3be8af6ebf124ffe81d90f514e59856c"
+        let gamesUrl = "https://api.rawg.io/api/games?key="+apiKey
         // weak self - prevent retain cycles
         print("Fetching games data..")
         apiService.getGamesData(gamesUrl: gamesUrl) { [weak self] (result) in
@@ -29,6 +29,7 @@ class GameViewModel {
                 print("Error processing json data: \(error)")
             }
         }
+    
     }
     func clearData(){
         var temp = [Game]()
