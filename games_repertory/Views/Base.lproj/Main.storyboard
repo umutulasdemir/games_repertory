@@ -63,7 +63,7 @@
         <!--Games-->
         <scene sceneID="mA8-pD-FFE">
             <objects>
-                <viewController id="7Mh-Vb-vw6" customClass="GamesViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GamesViewController" id="7Mh-Vb-vw6" customClass="GamesViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kWA-TK-uX0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,54 +189,10 @@
             </objects>
             <point key="canvasLocation" x="258.77862595419845" y="70.422535211267615"/>
         </scene>
-        <!--Detail Game View Controller-->
-        <scene sceneID="T3M-Bm-ytf">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a0N-Np-rhd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="DetailGameViewController" id="QYM-UU-kVx" customClass="DetailGameViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="c9g-t9-vXw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CGV-iZ-Hke">
-                                <rect key="frame" x="76" y="84" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="clp-wk-Uyb"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNu-di-9qs">
-                                <rect key="frame" x="0.0" y="400" width="393" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="hkR-6K-ovs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="fUu-7b-M94"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="fUu-7b-M94" firstAttribute="bottom" secondItem="RNu-di-9qs" secondAttribute="bottom" constant="168" id="5gh-fn-UJu"/>
-                            <constraint firstItem="RNu-di-9qs" firstAttribute="leading" secondItem="c9g-t9-vXw" secondAttribute="leading" id="a0C-00-fYI"/>
-                            <constraint firstItem="RNu-di-9qs" firstAttribute="centerX" secondItem="CGV-iZ-Hke" secondAttribute="centerX" id="mKc-C2-DAo"/>
-                            <constraint firstItem="CGV-iZ-Hke" firstAttribute="top" secondItem="fUu-7b-M94" secondAttribute="top" constant="25" id="oAX-fo-KSK"/>
-                            <constraint firstItem="fUu-7b-M94" firstAttribute="trailing" secondItem="CGV-iZ-Hke" secondAttribute="trailing" constant="77" id="uJc-Wp-ewO"/>
-                            <constraint firstItem="CGV-iZ-Hke" firstAttribute="leading" secondItem="fUu-7b-M94" secondAttribute="leading" constant="76" id="vYR-64-ybb"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="detailText" destination="RNu-di-9qs" id="Aky-yY-eJx"/>
-                        <outlet property="imageView" destination="CGV-iZ-Hke" id="6A8-No-Ues"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="120" y="839"/>
-        </scene>
-        <!--Table View Controller-->
+        <!--DetailGameTableViewController-->
         <scene sceneID="ryl-19-nW2">
             <objects>
-                <tableViewController id="L3q-rr-1GL" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DetailGameTableViewController" id="L3q-rr-1GL" userLabel="DetailGameTableViewController" customClass="DetailGameTableViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="anc-pq-bZL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +229,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="142" id="y4p-jR-9KI" userLabel="Description Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="142" id="y4p-jR-9KI" userLabel="DescriptionCell">
                                         <rect key="frame" x="0.0" y="242" width="393" height="142"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y4p-jR-9KI" id="B2D-nJ-Iui">
@@ -305,14 +261,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="i2a-zR-sAW" userLabel="Reddit Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="i2a-zR-sAW" userLabel="RedditCell">
                                         <rect key="frame" x="0.0" y="384" width="393" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i2a-zR-sAW" id="toB-wA-RY9">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit Reddit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjQ-t0-Ieb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit Reddit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjQ-t0-Ieb" userLabel="RedditLink">
                                                     <rect key="frame" x="36" y="17" width="321" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -327,14 +283,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="sDn-iZ-Wmo" userLabel="Website Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="sDn-iZ-Wmo" userLabel="WebsiteCell">
                                         <rect key="frame" x="0.0" y="438" width="393" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sDn-iZ-Wmo" id="Yj0-y6-z0H">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gh-Kz-yy8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gh-Kz-yy8" userLabel="WebSiteLabel">
                                                     <rect key="frame" x="36" y="17" width="321" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -359,6 +315,13 @@
                     </tableView>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="detailText" destination="rZp-2h-Awr" id="bCi-IE-aXF"/>
+                        <outlet property="gameName" destination="1nb-bO-8uL" id="QoH-67-Oeu"/>
+                        <outlet property="imageView" destination="TYA-jG-FOQ" id="ysU-dP-XmN"/>
+                        <outlet property="redditLinkLabel" destination="cjQ-t0-Ieb" id="JGq-oB-0JI"/>
+                        <outlet property="webSiteLinkLabel" destination="3gh-Kz-yy8" id="P2E-9g-oMX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q93-66-MoM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,9 +11,11 @@ class GamesViewController: UIViewController,UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UITableView!
     @IBOutlet weak var tableView: UITableView!
+    var favoriteGamesList: [Bool]?
     private var gameViewModel = GameViewModel()
     private var targetgGames = [Game]()
     var i = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -48,16 +50,30 @@ class GamesViewController: UIViewController,UISearchBarDelegate {
             
         }
     }
+    /*@IBAction func pushToSecond(_ sender: Any) {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailGameTableViewControler")as? DetailGameTableViewController {
+             
+                //callBack block will execute when user back from SecondViewController.
+                 vc.callBack = { (index: Int,isFav: Bool) in
+                     self.favoriteGamesList?[index] = isFav
+                     print("Favorite Check.. ", index.description + ": " + isFav.description)
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }*/
 }
 
 extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if i == 0 {
-            targetgGames = gameViewModel.getGames()
-            i=2
-        }
-            return max(gameViewModel.numberOfRowsInSection(section: section),1)
-        }
+        let count = gameViewModel.numberOfRowsInSection(section: section)
+                if i == 0 {
+                    targetgGames = gameViewModel.getGames()
+                    favoriteGamesList = Array(repeating: false, count: count)
+                    i=2
+                }
+                    return max(count,1)
+                }
+
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell : GameCell
@@ -75,14 +91,20 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier:
-        "DetailGameViewController") as?
-            DetailGameViewController{
-            print("hey", targetgGames.count + targetgGames[indexPath.row].id!)
+        "DetailGameTableViewController") as?
+            DetailGameTableViewController{
             let temp = gameViewModel.getGames()
             var i = 0
             for game in targetgGames{
                 if game.id == temp[indexPath.row].id {
                     vc.id = targetgGames[i].id!
+                    vc.index = i
+                    vc.isFav = favoriteGamesList?[i]
+                    vc.callBack = { (index: Int,isFav: Bool) in
+                        self.favoriteGamesList?[index] = isFav
+                        print("Favorite Check.. ", index.description + ": " + isFav.description)
+                   }
+                    break
                 }
                 i+=1
             }
