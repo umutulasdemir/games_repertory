@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GamesViewController: UIViewController,UISearchBarDelegate {
+class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegate {
     
     @IBOutlet weak var searchBar: UITableView!
     @IBOutlet weak var tableView: UITableView!
@@ -18,16 +18,21 @@ class GamesViewController: UIViewController,UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tabbar = tabBarController as! BaseUITabBarController?
         searchBar.delegate = self
+        
         LoadGamesData()
+        //action()
         // Do any additional setup after loading the view.
     }
+    
     private func LoadGamesData() {
         gameViewModel.fetchGamesData{ [weak self] in
                 self?.tableView.dataSource = self
                 self?.tableView.reloadData()
         }
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //tableView.backgroundView = noGameView
         gameViewModel.self.clearData()
@@ -70,6 +75,8 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
                     targetgGames = gameViewModel.getGames()
                     favoriteGamesList = Array(repeating: false, count: count)
                     i=2
+                    let tabbar = self.tabBarController as! BaseUITabBarController?
+                    tabbar?.games = self.targetgGames
                 }
                     return max(count,1)
                 }
@@ -102,7 +109,8 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
                     vc.isFav = favoriteGamesList?[i]
                     vc.callBack = { (index: Int,isFav: Bool) in
                         self.favoriteGamesList?[index] = isFav
-                        print("Favorite Check.. ", index.description + ": " + isFav.description)
+                        let tabbar = self.tabBarController as! BaseUITabBarController?
+                        tabbar?.favoriteGamesList = self.favoriteGamesList
                    }
                     break
                 }
