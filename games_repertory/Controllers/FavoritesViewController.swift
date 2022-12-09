@@ -10,6 +10,7 @@ import UIKit
 class FavoritesViewController: UIViewController,UISearchBarDelegate {
     
    
+    @IBOutlet weak var favoritesTitle: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     var favoriteGamesList: [Bool]?
     private var gameViewModel = GameViewModel()
@@ -29,6 +30,7 @@ class FavoritesViewController: UIViewController,UISearchBarDelegate {
                 self?.tableView.reloadData()
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         let tabbar2 = tabBarController as! BaseUITabBarController?
         favoriteGamesList = tabbar2?.favoriteGamesList
@@ -37,12 +39,12 @@ class FavoritesViewController: UIViewController,UISearchBarDelegate {
         tableView.reloadData()
     }
     
-    
     func checkTableView(){
         if tableView.visibleCells.isEmpty {
         }
     }
     
+
     func getFavorites(isFavList: [Bool]!,games: [Game]!){
         gameViewModel.clearData()
         var p = 0
@@ -59,6 +61,12 @@ class FavoritesViewController: UIViewController,UISearchBarDelegate {
 extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = gameViewModel.numberOfRowsInSection(section: section)
+        
+        if count != 0 {
+            favoritesTitle.title = "Favorites(\(count))"}
+        else {
+            favoritesTitle.title = "Favorites"
+        }
                 if i == 0 {
                     //targetgGames = gameViewModel.getGames()
                     getFavorites(isFavList: favoriteGamesList, games: targetgGames)
