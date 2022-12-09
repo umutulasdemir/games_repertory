@@ -18,7 +18,7 @@ class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tabbar = tabBarController as! BaseUITabBarController?
+        //let tabbar = tabBarController as! BaseUITabBarController?
         searchBar.delegate = self
         
         LoadGamesData()
@@ -110,6 +110,7 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
                 if game.id == temp[indexPath.row].id {
                     vc.id = targetgGames[i].id!
                     vc.index = i
+                    vc.name = targetgGames[i].name
                     vc.isFav = favoriteGamesList?[i]
                     vc.callBack = { (index: Int,isFav: Bool) in
                         self.favoriteGamesList?[index] = isFav
