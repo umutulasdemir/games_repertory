@@ -32,6 +32,10 @@ class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegat
                 self?.tableView.reloadData()
         }
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        let tabbar = self.tabBarController as! BaseUITabBarController?
+        tabbar?.favoriteGamesList = self.favoriteGamesList
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //tableView.backgroundView = noGameView
