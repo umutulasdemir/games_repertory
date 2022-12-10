@@ -14,23 +14,23 @@ class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegat
     var favoriteGamesList: [Bool]?
     private var gameViewModel = GameViewModel()
     private var targetgGames = [Game]()
+    private var images: [UIImage]?
     var i = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let tabbar = tabBarController as! BaseUITabBarController?
         searchBar.delegate = self
-        
         LoadGamesData()
-        //action()
-        // Do any additional setup after loading the view.
     }
-    
     private func LoadGamesData() {
         gameViewModel.fetchGamesData{ [weak self] in
                 self?.tableView.dataSource = self
                 self?.tableView.reloadData()
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        let tabbar = tabBarController as! BaseUITabBarController?
+        favoriteGamesList = tabbar?.favoriteGamesList
     }
     override func viewWillDisappear(_ animated: Bool) {
         let tabbar = self.tabBarController as! BaseUITabBarController?
@@ -38,38 +38,66 @@ class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegat
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //tableView.backgroundView = noGameView
         gameViewModel.self.clearData()
+        images = Array(repeating: UIImage(named: "background")!, count: targetgGames.count)
         if searchText.count < 4{
             tableView.reloadData()
             return
         }
+        var i = 0
         for fruit in targetgGames{
             guard let name = fruit.name else{
                 return
             }
             if name.lowercased().contains(searchText.lowercased()){
                 gameViewModel.addGame(game: fruit)
+                loadImage(urlS: fruit.background_image, index: i)
+                i+=1
             }
         }
         tableView.reloadData()
     }
-    func checkTableView(){
-        if tableView.visibleCells.isEmpty {
-            
+
+    func loadImages(games: [Game]!){
+        var i = 0
+        for game in games{
+            loadImage(urlS: game.background_image, index: i)
+            i+=1
         }
+        tableView.reloadData()
     }
-    /*@IBAction func pushToSecond(_ sender: Any) {
-            if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailGameTableViewControler")as? DetailGameTableViewController {
-             
-                //callBack block will execute when user back from SecondViewController.
-                 vc.callBack = { (index: Int,isFav: Bool) in
-                     self.favoriteGamesList?[index] = isFav
-                     print("Favorite Check.. ", index.description + ": " + isFav.description)
-                }
-                self.navigationController?.pushViewController(vc, animated: true)
+    func loadImage(urlS: String!, index: Int){
+        guard let posterString = urlS else {return}
+        let urlString = posterString
+        //print("OHOH", urlString)
+        guard let posterImageURL = URL(string: urlString) else {
+            self.images![index] = UIImage(named: "background")!
+            return
+        }
+        getImageDataFrom(url: posterImageURL, index: index)
+    }
+    private func getImageDataFrom(url: URL, index: Int) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Handle Error
+            if let error = error {
+                print("DataTask error: \(error.localizedDescription)")
+                return
             }
-        }*/
+            
+            guard let data = data else {
+                // Handle Empty Data
+                print("Empty Data")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    self.images?[index] = image
+                    self.tableView.reloadData()
+                }
+            }
+        }.resume()
+    }
 }
 
 extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
@@ -77,6 +105,8 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
         let count = gameViewModel.numberOfRowsInSection(section: section)
                 if i == 0 {
                     targetgGames = gameViewModel.getGames()
+                    images = Array(repeating: UIImage(named: "background")!, count: count)
+                    loadImages(games: targetgGames)
                     favoriteGamesList = Array(repeating: false, count: count)
                     i=2
                     let tabbar = self.tabBarController as! BaseUITabBarController?
@@ -91,7 +121,7 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
         if gameViewModel.getCount() != 0{
             cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GameCell
             let game = gameViewModel.cellForRowAt(indexPath: indexPath)
-            cell.setCellWithValuesOf(game)
+            cell.setCellWithValuesOf(game,image: images![indexPath.row])
             self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
         }
         else {

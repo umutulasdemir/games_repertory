@@ -186,7 +186,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="cell" rowHeight="136" id="azL-ZD-Zez" customClass="GameCell" customModule="games_repertory" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="cell2" rowHeight="136" id="azL-ZD-Zez" customClass="GameCell" customModule="games_repertory" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="azL-ZD-Zez" id="mtr-HX-Iyx">
@@ -253,7 +253,7 @@
                                             <outlet property="mcScore" destination="25g-6H-AgR" id="ry8-9X-MY6"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="noCell" rowHeight="136" id="KsV-Qx-Qn1" customClass="GameCell" customModule="games_repertory" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="noCell2" rowHeight="136" id="KsV-Qx-Qn1" customClass="GameCell" customModule="games_repertory" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="186" width="393" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KsV-Qx-Qn1" id="R1u-jE-wJ9">

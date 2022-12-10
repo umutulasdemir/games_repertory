@@ -47,5 +47,4 @@ struct DetailGame: Decodable {
         case description
         case background_image
     }
-    
 }

@@ -59,15 +59,6 @@ class DetailGameTableViewController: UITableViewController {
     
     @objc func back(_ sender: UITapGestureRecognizer) {
         print("Favorite Check: Back Button Tapped!")
-        /*if let vc = storyboard?.instantiateViewController(identifier:
-                                                            "GamesViewController") as?
-            GamesViewController{
-            //vc.favoriteGamesList = favoriteList!
-            //self.dismiss(animated: true, completion: {
-              //              self.navigationController?.popToRootViewController(animated: true)
-                //        })
-            self.navigationController?.pushViewController(vc,animated:true)
-        }*/
         callBack?(index!,isFav ?? false)
         self.navigationController?.popViewController(animated: true)
         
