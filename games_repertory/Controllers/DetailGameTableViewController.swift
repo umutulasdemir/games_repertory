@@ -34,6 +34,12 @@ class DetailGameTableViewController: UITableViewController {
         imageView.image = self.image
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 70
+        } else {
+            // Fallback on earlier versions
+        }
         self.gameName.text = name
         fetchDetailGamesData(id: id){[weak self] in}
         action()
@@ -41,12 +47,11 @@ class DetailGameTableViewController: UITableViewController {
     func action(){
         print("Favorite Check: ", isFav)
         if isFav!{
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favorited", style: .plain, target: self, action: #selector(self.unfavorite(_:)))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favourited", style: .plain, target: self, action: #selector(self.unfavorite(_:)))
         }
         else{
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(self.favorite(_:)))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favourite", style: .plain, target: self, action: #selector(self.favorite(_:)))
         }
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(self.back(_:)))
         let favoriteTap = UITapGestureRecognizer(target: self, action: #selector(self.favorite(_:)))
         let unfavoriteTap = UITapGestureRecognizer(target: self, action: #selector(self.unfavorite(_:)))
         let redditLabelTap = UITapGestureRecognizer(target: self, action: #selector(self.redditLinkLabelTapped(_:)))
@@ -57,12 +62,10 @@ class DetailGameTableViewController: UITableViewController {
         self.webSiteLinkLabel.addGestureRecognizer(webSiteLabelTap)
     }
     
-    @objc func back(_ sender: UITapGestureRecognizer) {
-        print("Favorite Check: Back Button Tapped!")
+    override func viewWillDisappear(_ animated: Bool) {
         callBack?(index!,isFav ?? false)
-        self.navigationController?.popViewController(animated: true)
-        
     }
+    
     @objc func redditLinkLabelTapped(_ sender: UITapGestureRecognizer) {
         print("Reddit Link Tapped!")
         guard let url = URL(string: "https://www.swift.org") else { return }
@@ -76,7 +79,7 @@ class DetailGameTableViewController: UITableViewController {
     @objc func favorite(_ sender: UITapGestureRecognizer) {
         print("Favorited!")
         isFav = true
-        navigationItem.rightBarButtonItem?.title = "Favorited"
+        navigationItem.rightBarButtonItem?.title = "Favourited"
         navigationItem.rightBarButtonItem?.action = #selector(self.unfavorite(_:))
         print("Favorite Check: ", isFav)
     }

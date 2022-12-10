@@ -27,11 +27,11 @@
             </objects>
             <point key="canvasLocation" x="984" y="-1411"/>
         </scene>
-        <!--Favorites-->
+        <!--Favourites-->
         <scene sceneID="8S4-Tg-8gz">
             <objects>
-                <navigationController id="Vui-4A-NN3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="Icon" selectedImage="Icon" id="QD8-Yy-9s7"/>
+                <navigationController id="Vui-4A-NN3" userLabel="Favourites" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favourites" image="Icon" selectedImage="Icon" id="QD8-Yy-9s7" userLabel="Favourites"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VsG-w4-SXT">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -172,10 +172,10 @@
             </objects>
             <point key="canvasLocation" x="-454.19847328244271" y="50.70422535211268"/>
         </scene>
-        <!--Favorites-->
+        <!--Favourites-->
         <scene sceneID="D14-BB-RrF">
             <objects>
-                <viewController storyboardIdentifier="FavoritesViewController" id="jrm-lh-Opl" userLabel="Favorites" customClass="FavoritesViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesViewController" id="jrm-lh-Opl" customClass="FavoritesViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ljn-dc-csA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -281,7 +281,7 @@
                         <viewLayoutGuide key="safeArea" id="7Yp-NP-o8v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="1Y1-vJ-Qtr"/>
+                    <navigationItem key="navigationItem" title="Favourites" id="1Y1-vJ-Qtr"/>
                     <connections>
                         <outlet property="favoritesTitle" destination="1Y1-vJ-Qtr" id="eVs-Rq-4TA"/>
                         <outlet property="tableView" destination="dSc-er-ZuO" id="aCz-nK-GmA"/>
