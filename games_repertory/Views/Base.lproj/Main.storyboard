@@ -75,14 +75,14 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ME-cA-k9r">
                                                     <rect key="frame" x="16" y="16" width="120" height="104"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GRAND THEFT AUTO V" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1F0-lr-8vE">
-                                                    <rect key="frame" x="152" y="16" width="207" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRAND THEFT AUTO V" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1F0-lr-8vE">
+                                                    <rect key="frame" x="161" y="16" width="184" height="70"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="metacritic:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mn5-bG-6uu">
-                                                    <rect key="frame" x="152" y="87" width="71" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="metacritic:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mn5-bG-6uu">
+                                                    <rect key="frame" x="161" y="87" width="68.333333333333314" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -111,18 +111,16 @@
                                                 <constraint firstAttribute="trailing" secondItem="4ME-cA-k9r" secondAttribute="trailing" constant="248" id="QEX-RC-e49"/>
                                                 <constraint firstAttribute="trailing" secondItem="G6l-TU-xrI" secondAttribute="trailing" constant="136" id="RD0-Cj-CWL"/>
                                                 <constraint firstItem="1F0-lr-8vE" firstAttribute="top" secondItem="lDO-eo-7zL" secondAttribute="top" constant="16" id="VfM-qg-UZn"/>
+                                                <constraint firstItem="Mn5-bG-6uu" firstAttribute="top" secondItem="1F0-lr-8vE" secondAttribute="bottom" constant="1" id="Xd5-7Y-3by"/>
                                                 <constraint firstAttribute="bottom" secondItem="G6l-TU-xrI" secondAttribute="bottom" constant="33" id="Xql-Ok-md2"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1F0-lr-8vE" secondAttribute="trailing" constant="20" symbolic="YES" id="YVO-a1-ycH"/>
                                                 <constraint firstAttribute="trailing" secondItem="1F0-lr-8vE" secondAttribute="trailing" constant="48" id="bSy-jg-Hi1"/>
                                                 <constraint firstItem="1F0-lr-8vE" firstAttribute="leading" secondItem="4ME-cA-k9r" secondAttribute="trailing" constant="16" id="fkX-DE-JbU"/>
                                                 <constraint firstAttribute="bottom" secondItem="4ME-cA-k9r" secondAttribute="bottom" constant="16" id="iYS-kO-nES"/>
                                                 <constraint firstItem="Fo2-eg-Pif" firstAttribute="top" secondItem="Mn5-bG-6uu" secondAttribute="bottom" constant="6" id="kdV-vO-c4s"/>
-                                                <constraint firstItem="Mn5-bG-6uu" firstAttribute="top" secondItem="1F0-lr-8vE" secondAttribute="bottom" constant="44" id="mO4-rX-gA5"/>
-                                                <constraint firstAttribute="bottom" secondItem="1F0-lr-8vE" secondAttribute="bottom" constant="99.666666666666629" id="npc-x2-w2a"/>
                                                 <constraint firstItem="G6l-TU-xrI" firstAttribute="leading" secondItem="Mn5-bG-6uu" secondAttribute="trailing" constant="8" symbolic="YES" id="rn0-Bg-DVm"/>
                                                 <constraint firstItem="Fo2-eg-Pif" firstAttribute="leading" secondItem="4ME-cA-k9r" secondAttribute="trailing" constant="16" id="sBo-cp-uBm"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fo2-eg-Pif" secondAttribute="bottom" constant="13.666666666666671" id="shR-TZ-b9r"/>
-                                                <constraint firstItem="G6l-TU-xrI" firstAttribute="top" secondItem="1F0-lr-8vE" secondAttribute="bottom" constant="44" id="tMN-rW-xwj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -171,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRe-iy-3eJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-454" y="51"/>
+            <point key="canvasLocation" x="-454.19847328244271" y="50.70422535211268"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="D14-BB-RrF">
@@ -196,14 +194,14 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axL-IS-t2w">
                                                     <rect key="frame" x="16" y="16" width="120" height="104"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GRAND THEFT AUTO V" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAu-qx-nTA">
-                                                    <rect key="frame" x="152" y="16" width="207" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRAND THEFT AUTO V" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAu-qx-nTA">
+                                                    <rect key="frame" x="161" y="16" width="184" height="70"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="metacritic:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLT-TB-GJv">
-                                                    <rect key="frame" x="152" y="87" width="71" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="metacritic:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLT-TB-GJv">
+                                                    <rect key="frame" x="161" y="87" width="68.333333333333314" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -224,6 +222,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="25g-6H-AgR" secondAttribute="trailing" constant="136" id="3Ek-cf-PqX"/>
                                                 <constraint firstItem="25g-6H-AgR" firstAttribute="leading" secondItem="vLT-TB-GJv" secondAttribute="trailing" constant="8" symbolic="YES" id="3L6-rc-cKI"/>
+                                                <constraint firstItem="vLT-TB-GJv" firstAttribute="top" secondItem="rAu-qx-nTA" secondAttribute="bottom" constant="1" id="3VH-iT-bGW"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rAu-qx-nTA" secondAttribute="trailing" constant="20" symbolic="YES" id="5Ya-uO-kSO"/>
                                                 <constraint firstItem="vLT-TB-GJv" firstAttribute="leading" secondItem="axL-IS-t2w" secondAttribute="trailing" constant="16" id="7JL-L7-BGm"/>
                                                 <constraint firstItem="3wD-PG-lT4" firstAttribute="top" secondItem="vLT-TB-GJv" secondAttribute="bottom" constant="6" id="8Rj-KZ-uIT"/>
@@ -232,17 +231,14 @@
                                                 <constraint firstItem="3wD-PG-lT4" firstAttribute="leading" secondItem="axL-IS-t2w" secondAttribute="trailing" constant="16" id="bEl-p0-5uP"/>
                                                 <constraint firstAttribute="trailing" secondItem="axL-IS-t2w" secondAttribute="trailing" constant="248" id="cNk-3T-Pab"/>
                                                 <constraint firstItem="25g-6H-AgR" firstAttribute="top" secondItem="mtr-HX-Iyx" secondAttribute="top" constant="87" id="eSl-p9-Ucb"/>
-                                                <constraint firstItem="25g-6H-AgR" firstAttribute="top" secondItem="rAu-qx-nTA" secondAttribute="bottom" constant="44" id="fsi-Nn-Xuc"/>
                                                 <constraint firstAttribute="trailing" secondItem="rAu-qx-nTA" secondAttribute="trailing" constant="48" id="h3U-to-6Ov"/>
                                                 <constraint firstItem="vLT-TB-GJv" firstAttribute="top" secondItem="mtr-HX-Iyx" secondAttribute="top" constant="87" id="hw0-h8-uNn"/>
                                                 <constraint firstItem="axL-IS-t2w" firstAttribute="top" secondItem="mtr-HX-Iyx" secondAttribute="top" constant="16" id="jW7-ig-lyz"/>
                                                 <constraint firstItem="rAu-qx-nTA" firstAttribute="top" secondItem="mtr-HX-Iyx" secondAttribute="top" constant="16" id="jXK-oG-ptp"/>
-                                                <constraint firstAttribute="bottom" secondItem="rAu-qx-nTA" secondAttribute="bottom" constant="99.666666666666629" id="nyq-Gd-4u1"/>
                                                 <constraint firstItem="rAu-qx-nTA" firstAttribute="leading" secondItem="axL-IS-t2w" secondAttribute="trailing" constant="16" id="rec-SH-jQK"/>
                                                 <constraint firstAttribute="bottom" secondItem="25g-6H-AgR" secondAttribute="bottom" constant="33" id="sO2-p3-0Sd"/>
                                                 <constraint firstAttribute="bottom" secondItem="vLT-TB-GJv" secondAttribute="bottom" constant="33" id="tXi-Hz-BbU"/>
                                                 <constraint firstAttribute="bottom" secondItem="3wD-PG-lT4" secondAttribute="bottom" constant="13.666666666666671" id="wKG-av-9h2"/>
-                                                <constraint firstItem="vLT-TB-GJv" firstAttribute="top" secondItem="rAu-qx-nTA" secondAttribute="bottom" constant="44" id="yHA-rk-Phz"/>
                                                 <constraint firstAttribute="bottom" secondItem="axL-IS-t2w" secondAttribute="bottom" constant="16" id="zi0-dF-Vnw"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -292,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxU-p6-lsS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2514" y="51"/>
+            <point key="canvasLocation" x="2513.740458015267" y="50.70422535211268"/>
         </scene>
         <!--DetailGameTableViewController-->
         <scene sceneID="ryl-19-nW2">
@@ -315,7 +311,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="af175e6a32cd6f7424cc55beac3c5f7f (1) 1" translatesAutoresizingMaskIntoConstraints="NO" id="TYA-jG-FOQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="192"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand Theft Auto V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nb-bO-8uL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand Theft Auto V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1nb-bO-8uL">
                                                     <rect key="frame" x="36" y="138" width="321" height="59"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
