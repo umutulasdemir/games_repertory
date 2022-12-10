@@ -10,13 +10,13 @@ import UIKit
 
 class DetailGameTableViewController: UITableViewController {
     
-    
     @IBOutlet weak var redditLinkLabel: UILabel!
     @IBOutlet weak var webSiteLinkLabel: UILabel!
     @IBOutlet weak var detailText: UILabel!
     @IBOutlet weak var gameName: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var name: String?
+    var image: UIImage?
     var index: Int?
     private var gameViewModel = GameViewModel()
     private var detailGame: DetailGame?
@@ -31,12 +31,12 @@ class DetailGameTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.image = self.image
         tableView.delegate = self
         tableView.dataSource = self
         self.gameName.text = name
         fetchDetailGamesData(id: id){[weak self] in}
         action()
-
     }
     func action(){
         print("Favorite Check: ", isFav)

@@ -57,7 +57,7 @@ class FavoritesViewController: UIViewController, UITabBarDelegate {
             }
             p+=1
         }
-        images = Array(repeating: UIImage(named: "loading")!, count: gameViewModel.numberOfRowsInSection(section: 0))
+        images = Array(repeating: UIImage(systemName: "gamecontroller.fill")!, count: gameViewModel.numberOfRowsInSection(section: 0))
     }
     func loadImages(games: [Game]!){
         var i = 0
@@ -72,7 +72,7 @@ class FavoritesViewController: UIViewController, UITabBarDelegate {
         let urlString = posterString
         //print("OHOH", urlString)
         guard let posterImageURL = URL(string: urlString) else {
-            self.images![index] = UIImage(named: "loading")!
+            self.images![index] = UIImage(systemName: "gamecontroller.fill")!
             return
         }
         getImageDataFrom(url: posterImageURL, index: index)

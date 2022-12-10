@@ -39,7 +39,7 @@ class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegat
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         gameViewModel.self.clearData()
-        images = Array(repeating: UIImage(named: "loading")!, count: targetgGames.count)
+        images = Array(repeating: UIImage(systemName: "gamecontroller.fill")!, count: targetgGames.count)
         if searchText.count < 4{
             tableView.reloadData()
             return
@@ -71,7 +71,7 @@ class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegat
         let urlString = posterString
         //print("OHOH", urlString)
         guard let posterImageURL = URL(string: urlString) else {
-            self.images![index] = UIImage(named: "loading")!
+            self.images![index] = UIImage(systemName: "gamecontroller.fill")!
             return
         }
         getImageDataFrom(url: posterImageURL, index: index)
@@ -105,7 +105,7 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
         let count = gameViewModel.numberOfRowsInSection(section: section)
                 if i == 0 {
                     targetgGames = gameViewModel.getGames()
-                    images = Array(repeating: UIImage(named: "loading")!, count: count)
+                    images = Array(repeating: UIImage(systemName: "gamecontroller.fill")!, count: count)
                     loadImages(games: targetgGames)
                     favoriteGamesList = Array(repeating: false, count: count)
                     i=2
@@ -140,6 +140,7 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
                 if game.id == temp[indexPath.row].id {
                     vc.id = targetgGames[i].id!
                     vc.index = i
+                    vc.image = images![i]
                     vc.name = targetgGames[i].name
                     vc.isFav = favoriteGamesList?[i]
                     vc.callBack = { (index: Int,isFav: Bool) in
