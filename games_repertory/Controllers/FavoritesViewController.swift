@@ -20,7 +20,7 @@ class FavoritesViewController: UIViewController, UITabBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        getFavorites(isFavList: favoriteGamesList, games: targetgGames)
+        //getFavorites(isFavList: favoriteGamesList, games: targetgGames)
         LoadGamesData()
     }
     private func LoadGamesData() {
@@ -36,17 +36,13 @@ class FavoritesViewController: UIViewController, UITabBarDelegate {
         targetgGames = (tabbar2?.games)!
         getFavorites(isFavList: favoriteGamesList, games: targetgGames)
         loadImages(games: gameViewModel.getGames())
-        tableView.reloadData()
+
     }
     override func viewWillDisappear(_ animated: Bool) {
         let tabbar = self.tabBarController as! BaseUITabBarController?
         tabbar?.favoriteGamesList = self.favoriteGamesList
     }
     
-    func checkTableView(){
-        if tableView.visibleCells.isEmpty {
-        }
-    }
     func getFavorites(isFavList: [Bool]!,games: [Game]!){
         gameViewModel.clearData()
         var p = 0
@@ -56,21 +52,19 @@ class FavoritesViewController: UIViewController, UITabBarDelegate {
             }
             p+=1
         }
-        images = Array(repeating: UIImage(systemName: "gamecontroller.fill")!, count: gameViewModel.numberOfRowsInSection(section: 0))
         tableView.reloadData()
     }
     func loadImages(games: [Game]!){
+        print("ALO:", games.count)
         var i = 0
         for game in games{
             loadImage(urlS: game.background_image, index: i)
             i+=1
         }
-        tableView.reloadData()
     }
     func loadImage(urlS: String!, index: Int){
         guard let posterString = urlS else {return}
         let urlString = posterString
-        //print("OHOH", urlString)
         guard let posterImageURL = URL(string: urlString) else {
             self.images![index] = UIImage(systemName: "gamecontroller.fill")!
             return
@@ -112,6 +106,7 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
             favoritesTitle.title = "Favourites"
         }
                 if i == 0 {
+                    images = Array(repeating: UIImage(systemName: "gamecontroller.fill")!, count: gameViewModel.numberOfRowsInSection(section: 0))
                     getFavorites(isFavList: favoriteGamesList, games: targetgGames)
                     loadImages(games: gameViewModel.getGames())
                     i=2
@@ -133,6 +128,33 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
             self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: @escaping (Bool) -> ()) in
+            let alert = UIAlertController(title: "Remove from favorites?", message: "Are you sure you want to remove this game from favorites?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alertAction) in
+                actionPerformed(false)
+            }))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (alertAction) in
+                tableView.beginUpdates()
+                self.gameViewModel.removeGame(index: indexPath.row)
+                self.favoriteGamesList![indexPath.row] = false
+                print("NERE",self.favoriteGamesList)
+                let tabbar = self.tabBarController as! BaseUITabBarController?
+                tabbar?.favoriteGamesList = self.favoriteGamesList
+                if(self.gameViewModel.getCount() != 0){
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+                else{ // there should be at least one cell at least to show no favorites found with "nocell".
+                    tableView.reloadData()
+                }
+                tableView.endUpdates()
+                actionPerformed(true)
+            }))
+            self.present(alert, animated: true)
+        }
+        return UISwipeActionsConfiguration(actions: [delete])
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier:

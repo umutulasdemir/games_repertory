@@ -37,6 +37,10 @@ class GameViewModel {
         }
     }
     
+    func removeGame(index: Int?){
+        targetgGames.remove(at: index!)
+    }
+    
     func clearData(){
         var temp = [Game]()
         temp.append(contentsOf: targetgGames)

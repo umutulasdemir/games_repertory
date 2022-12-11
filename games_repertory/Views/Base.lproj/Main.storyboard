@@ -31,7 +31,7 @@
         <scene sceneID="8S4-Tg-8gz">
             <objects>
                 <navigationController id="Vui-4A-NN3" userLabel="Favourites" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="Icon" selectedImage="Icon" id="QD8-Yy-9s7" userLabel="Favourites"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="Icon" selectedImage="Icon" id="QD8-Yy-9s7" userLabel="Favourites"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VsG-w4-SXT">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -172,10 +172,10 @@
             </objects>
             <point key="canvasLocation" x="-454.19847328244271" y="50.70422535211268"/>
         </scene>
-        <!--Favorites-->
+        <!--Favourites-->
         <scene sceneID="D14-BB-RrF">
             <objects>
-                <viewController storyboardIdentifier="FavoritesViewController" id="jrm-lh-Opl" customClass="FavoritesViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesViewController" id="jrm-lh-Opl" userLabel="Favourites" customClass="FavoritesViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ljn-dc-csA" userLabel="FavouritesView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,7 +282,7 @@
                         <viewLayoutGuide key="safeArea" id="7Yp-NP-o8v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="1Y1-vJ-Qtr"/>
+                    <navigationItem key="navigationItem" title="Favourites" id="1Y1-vJ-Qtr" userLabel="Favourites Title"/>
                     <connections>
                         <outlet property="favoritesTitle" destination="1Y1-vJ-Qtr" id="eVs-Rq-4TA"/>
                         <outlet property="tableView" destination="dSc-er-ZuO" id="aCz-nK-GmA"/>
@@ -295,7 +295,7 @@
         <!--DetailGameTableViewController-->
         <scene sceneID="ryl-19-nW2">
             <objects>
-                <tableViewController storyboardIdentifier="DetailGameTableViewController" id="L3q-rr-1GL" userLabel="DetailGameTableViewController" customClass="DetailGameTableViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DetailGameTableViewController" hidesBottomBarWhenPushed="YES" id="L3q-rr-1GL" userLabel="DetailGameTableViewController" customClass="DetailGameTableViewController" customModule="games_repertory" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="anc-pq-bZL" userLabel="DetailTableView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
