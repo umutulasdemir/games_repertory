@@ -16,11 +16,16 @@ class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegat
     private var targetgGames = [Game]()
     private var images: [UIImage]?
     var i = 0
-    
+    var isKeyBoard = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         LoadGamesData()
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.endEditing(true)
     }
     private func LoadGamesData() {
         gameViewModel.fetchGamesData{ [weak self] in
@@ -131,6 +136,10 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isKeyBoard {
+            self.view.endEditing(true)
+            return
+        }
         if let vc = storyboard?.instantiateViewController(identifier:
         "DetailGameTableViewController") as?
             DetailGameTableViewController{

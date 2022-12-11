@@ -140,7 +140,6 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
                 tableView.beginUpdates()
                 self.gameViewModel.removeGame(index: indexPath.row)
                 self.favoriteGamesList![indexPath.row] = false
-                print("NERE",self.favoriteGamesList)
                 let tabbar = self.tabBarController as! BaseUITabBarController?
                 tabbar?.favoriteGamesList = self.favoriteGamesList
                 if(self.gameViewModel.getCount() != 0){
@@ -182,3 +181,4 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
         }
     }
 }
+
