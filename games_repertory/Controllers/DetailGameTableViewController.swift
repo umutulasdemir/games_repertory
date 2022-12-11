@@ -32,6 +32,7 @@ class DetailGameTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         imageView.image = self.image
         tableView.delegate = self
         tableView.dataSource = self

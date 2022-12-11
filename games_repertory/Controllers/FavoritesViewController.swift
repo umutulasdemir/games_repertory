@@ -144,7 +144,7 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
                 if game.id == temp[indexPath.row].id {
                     vc.id = targetgGames[i].id!
                     vc.index = i
-                    vc.image =  images?[i]
+                    vc.image = images![indexPath.row] // images is limited with current game count.
                     vc.name = targetgGames[i].name
                     vc.isFav = favoriteGamesList?[i]
                     vc.callBack = { (index: Int,isFav: Bool) in
