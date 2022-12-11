@@ -18,6 +18,7 @@ class DetailGameTableViewController: UITableViewController {
     var name: String?
     var image: UIImage?
     var index: Int?
+    var isFav: Bool?
     private var gameViewModel = GameViewModel()
     private var detailGame: DetailGame?
     var id = 0
@@ -27,7 +28,7 @@ class DetailGameTableViewController: UITableViewController {
     private var urlString: String = ""
     private var lastUrl: URL?
     var callBack: ((_ index: Int, _ isFav: Bool)-> Void)?
-    var isFav: Bool?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,13 +82,17 @@ class DetailGameTableViewController: UITableViewController {
         isFav = true
         navigationItem.rightBarButtonItem?.title = "Favourited"
         navigationItem.rightBarButtonItem?.action = #selector(self.unfavorite(_:))
+        let tabbar = self.tabBarController as! BaseUITabBarController?
+        tabbar?.favoriteGamesList![self.index!] = true
         print("Favorite Check: ", isFav)
     }
     @objc func unfavorite(_ sender: UITapGestureRecognizer) {
         print("Unfavorited!")
         isFav = false
-        navigationItem.rightBarButtonItem?.title = "Favorite"
+        navigationItem.rightBarButtonItem?.title = "Favourite"
         navigationItem.rightBarButtonItem?.action = #selector(self.favorite(_:))
+        let tabbar = self.tabBarController as! BaseUITabBarController?
+        tabbar?.favoriteGamesList![self.index!] = false
         print("Favorite Check: ", isFav)
     }
     // MARK: - Table view data source
@@ -113,7 +118,7 @@ class DetailGameTableViewController: UITableViewController {
                 guard let posterString = listOf.background_image else {return}
                 self?.urlString = posterString
                 guard let posterImageURL = URL(string: self!.urlString) else {
-                    self?.imageView.image = UIImage(named: "noImageAvailable")
+                    self?.imageView.image = UIImage(systemName: "gamecontroller.fill")
                     return
                 }
                 self?.getImageDataFrom(url: posterImageURL)

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "89AC53DB-691C-4112-8BB7-55DC8C624124"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DB65A59-DD19-4DD1-81D6-85EC293B6E45"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "games_repertory/GameCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "GameCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "8DB65A59-DD19-4DD1-81D6-85EC293B6E45 - 2a7c45dd4ef4468f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "games_repertory.GameCell.categories.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "games_repertory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/umutulasdemir/Desktop/iOS%20dev/games_repertory/games_repertory/GameCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "8DB65A59-DD19-4DD1-81D6-85EC293B6E45 - 74260fa0106e097b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "games_repertory.GameCell.categories.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "games_repertory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/umutulasdemir/Desktop/iOS%20dev/games_repertory/games_repertory/GameCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "8DB65A59-DD19-4DD1-81D6-85EC293B6E45 - 8a7099f318cd1a8c"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "games_repertory.GameCell.categories.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "games_repertory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/umutulasdemir/Desktop/iOS%20dev/games_repertory/games_repertory/GameCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "8DB65A59-DD19-4DD1-81D6-85EC293B6E45 - c6004119312234f9"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "games_repertory.GameCell.categories.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "games_repertory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/umutulasdemir/Desktop/iOS%20dev/games_repertory/games_repertory/GameCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "8DB65A59-DD19-4DD1-81D6-85EC293B6E45 - 3cc81b8403bcad20"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "games_repertory.GameCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; games_repertory.GameCell"
+                  moduleName = "games_repertory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/umutulasdemir/Desktop/iOS%20dev/games_repertory/games_repertory/GameCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "8DB65A59-DD19-4DD1-81D6-85EC293B6E45 - 9cfd7e80737fbc22"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "games_repertory.GameCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;games_repertory.GameCell&gt;"
+                  moduleName = "games_repertory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/umutulasdemir/Desktop/iOS%20dev/games_repertory/games_repertory/GameCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "611BCB57-8F98-4D5A-B1F5-95C0C1D41726"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "games_repertory/GameCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "GameCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9535BA63-123E-4A53-A9CA-1BF2ED2C40CB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "games_repertory/GameCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "GameCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E924A56-211E-481B-BB4F-B13BCB17C364"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "games_repertory/GameCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "GameCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6482B2A6-AEF1-42B6-B1EA-351737498CC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "games_repertory/GameCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "GameCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2057A84-9ED0-4BBF-9C19-7533AEFA5CBB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "games_repertory/Controllers/FavoritesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "FavoritesViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

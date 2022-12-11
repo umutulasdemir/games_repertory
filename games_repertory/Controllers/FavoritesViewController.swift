@@ -53,11 +53,11 @@ class FavoritesViewController: UIViewController, UITabBarDelegate {
         for game in games{
             if isFavList[p]{
                 gameViewModel.addGame(game: game)
-                tableView.reloadData()
             }
             p+=1
         }
         images = Array(repeating: UIImage(systemName: "gamecontroller.fill")!, count: gameViewModel.numberOfRowsInSection(section: 0))
+        tableView.reloadData()
     }
     func loadImages(games: [Game]!){
         var i = 0
@@ -107,9 +107,9 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
         let count = gameViewModel.numberOfRowsInSection(section: section)
         
         if count != 0 {
-            favoritesTitle.title = "Favorites(\(count))"}
+            favoritesTitle.title = "Favourites(\(count))"}
         else {
-            favoritesTitle.title = "Favorites"
+            favoritesTitle.title = "Favourites"
         }
                 if i == 0 {
                     getFavorites(isFavList: favoriteGamesList, games: targetgGames)
@@ -144,6 +144,7 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
                 if game.id == temp[indexPath.row].id {
                     vc.id = targetgGames[i].id!
                     vc.index = i
+                    vc.image =  images?[i]
                     vc.name = targetgGames[i].name
                     vc.isFav = favoriteGamesList?[i]
                     vc.callBack = { (index: Int,isFav: Bool) in

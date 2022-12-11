@@ -45,13 +45,13 @@ class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegat
             return
         }
         var i = 0
-        for fruit in targetgGames{
-            guard let name = fruit.name else{
+        for game in targetgGames{
+            guard let name = game.name else{
                 return
             }
             if name.lowercased().contains(searchText.lowercased()){
-                gameViewModel.addGame(game: fruit)
-                loadImage(urlS: fruit.background_image, index: i)
+                gameViewModel.addGame(game: game)
+                loadImage(urlS: game.background_image, index: i)
                 i+=1
             }
         }
@@ -101,6 +101,7 @@ class GamesViewController: UIViewController,UISearchBarDelegate, UITabBarDelegat
 }
 
 extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = gameViewModel.numberOfRowsInSection(section: section)
                 if i == 0 {
@@ -115,7 +116,6 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
                     return max(count,1)
                 }
 
-        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell : GameCell
         if gameViewModel.getCount() != 0{
