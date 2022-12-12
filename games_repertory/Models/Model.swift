@@ -6,6 +6,7 @@
 //
 import Foundation
 
+// Model for targetGames which is a list of games
 struct GamesData: Decodable {
     let games: [Game]
     
@@ -14,6 +15,7 @@ struct GamesData: Decodable {
     }
 }
 
+// Genre of game
 struct Genre: Decodable {
     
     let name: String?
@@ -22,6 +24,8 @@ struct Genre: Decodable {
         case name
     }
 }
+
+// Each 'Game' inside of 'GamesData'
 struct Game: Decodable {
     
     let id: Int?
@@ -39,9 +43,10 @@ struct Game: Decodable {
     }
 }
 
+// Game details independent of 'GamesData'. This need a different API call.
 struct DetailGame: Decodable {
     let description: String?
-    let background_image: String?
+    let background_image: String? // URL for API call to get UIImage object
     
     private enum CodingKeys: String, CodingKey {
         case description

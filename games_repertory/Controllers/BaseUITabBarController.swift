@@ -9,6 +9,7 @@ import UIKit
 
 class BaseUITabBarController: UITabBarController {
     
+    // Hold the favorite games list and the games list in the tab bar
     var favoriteGamesList: [Bool]?
     var games: [Game]?
 

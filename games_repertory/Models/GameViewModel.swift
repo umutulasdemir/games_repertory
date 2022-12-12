@@ -8,14 +8,16 @@
 import Foundation
 import UIKit
 
+// The view model for the list of games pulled from the API
 class GameViewModel {
     
-    private var Images: [UIImage]?
+    private var Images: [UIImage]? // The list of images corresponding to each game
     private var isImagesLoaded: [Bool]?
     private var apiService = ApiService()
-    private var targetgGames = [Game]()
+    private var targetgGames = [Game]() // The list of games
     private let apiKey = "3be8af6ebf124ffe81d90f514e59856c"
     
+    // The API call to get the games
     func fetchGamesData(completion: @escaping () -> ()) {
         
         let gamesUrl = "https://api.rawg.io/api/games?key="+apiKey
@@ -41,22 +43,25 @@ class GameViewModel {
         targetgGames.remove(at: index!)
     }
     
+    // Clear targetGames
     func clearData(){
-        var temp = [Game]()
-        temp.append(contentsOf: targetgGames)
         targetgGames.removeAll()
     }
+    
     func addGame(game: Game){
         targetgGames.append(game)
     }
+    
     func getGames()->[Game]{
         return targetgGames
     }
+    
     func getCount()->Int{
         return targetgGames.count
     }
     
     
+    // Return the number of games in targetGames
     func numberOfRowsInSection(section: Int) -> Int {
         if targetgGames.count != 0 {
             print("total games count: ",targetgGames.count)
@@ -65,6 +70,7 @@ class GameViewModel {
         return 0
     }
     
+    // Return the game at index 'indexPath' of targetGames
     func cellForRowAt (indexPath: IndexPath) -> Game {
         return targetgGames[indexPath.row]
     }

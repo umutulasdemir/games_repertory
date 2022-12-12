@@ -15,10 +15,14 @@ class DetailGameTableViewController: UITableViewController {
     @IBOutlet weak var detailText: UILabel!
     @IBOutlet weak var gameName: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
+    // Variables set by data transfer
     var name: String?
     var image: UIImage?
     var index: Int?
     var isFav: Bool?
+    // ------------------------------
+    
     private var gameViewModel = GameViewModel()
     private var detailGame: DetailGame?
     var id = 0
@@ -47,21 +51,22 @@ class DetailGameTableViewController: UITableViewController {
         action()
     }
     func action(){
-        print("Favorite Check: ", isFav)
+        
+        print("Favorite Check: ", isFav!)
         if isFav!{
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favourited", style: .plain, target: self, action: #selector(self.unfavorite(_:)))
         }
         else{
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favourite", style: .plain, target: self, action: #selector(self.favorite(_:)))
         }
-        let favoriteTap = UITapGestureRecognizer(target: self, action: #selector(self.favorite(_:)))
-        let unfavoriteTap = UITapGestureRecognizer(target: self, action: #selector(self.unfavorite(_:)))
+
         let redditLabelTap = UITapGestureRecognizer(target: self, action: #selector(self.redditLinkLabelTapped(_:)))
         let webSiteLabelTap = UITapGestureRecognizer(target: self, action: #selector(self.webSiteLinkLabelTapped(_:)))
         self.redditLinkLabel.isUserInteractionEnabled = true
         self.redditLinkLabel.addGestureRecognizer(redditLabelTap)
         self.webSiteLinkLabel.isUserInteractionEnabled = true
         self.webSiteLinkLabel.addGestureRecognizer(webSiteLabelTap)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,7 +90,7 @@ class DetailGameTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem?.action = #selector(self.unfavorite(_:))
         let tabbar = self.tabBarController as! BaseUITabBarController?
         tabbar?.favoriteGamesList![self.index!] = true
-        print("Favorite Check: ", isFav)
+        print("Favorite Check: ", isFav!)
     }
     @objc func unfavorite(_ sender: UITapGestureRecognizer) {
         print("Unfavorited!")
@@ -94,7 +99,7 @@ class DetailGameTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem?.action = #selector(self.favorite(_:))
         let tabbar = self.tabBarController as! BaseUITabBarController?
         tabbar?.favoriteGamesList![self.index!] = false
-        print("Favorite Check: ", isFav)
+        print("Favorite Check: ", isFav!)
     }
     // MARK: - Table view data source
 

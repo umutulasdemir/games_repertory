@@ -11,6 +11,7 @@ class ApiService {
     
     private var dataTask: URLSessionDataTask?
     
+    // Get the games with an API call and return it as a decoded object (See 'Model.Gamesdata')
     func getGamesData(gamesUrl: String,completion: @escaping (Result<GamesData, Error>) -> Void) {
         
         //let gamesUrl = "https://api.rawg.io/api/games?key=3be8af6ebf124ffe81d90f514e59856c"
@@ -57,6 +58,8 @@ class ApiService {
         }
         dataTask?.resume()
     }
+    
+    // Get game details and return the result as a decoded object (See 'Model.DetailGame')
     func getDetailGamesData(gamesUrl: String,completion: @escaping (Result<DetailGame, Error>) -> Void) {
         
         //let gamesUrl = "https://api.rawg.io/api/games?key=3be8af6ebf124ffe81d90f514e59856c"
