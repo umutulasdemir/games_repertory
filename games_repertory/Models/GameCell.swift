@@ -31,6 +31,7 @@ class GameCell: UITableViewCell {
         self.gameImageView.image = imageView
     }
     
+    // Format the genres list into one displayable string and return it
     private func combineGenres(genres: [Genre]!)-> String{
         var combinedGenres = ""
         var i = 0

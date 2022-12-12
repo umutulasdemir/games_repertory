@@ -15,14 +15,16 @@ class DetailGameTableViewController: UITableViewController {
     @IBOutlet weak var detailText: UILabel!
     @IBOutlet weak var gameName: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
+    // Variables set by data transfer
     var name: String?
     var image: UIImage?
     var index: Int?
     var isFav: Bool?
-    private var gameViewModel = GameViewModel()
-    private var detailGame: DetailGame?
     var id = 0
-    var i = 0
+    // ------------------------------
+    
+    // Initialize necessary variables and constants
     private var apiService = ApiService()
     private let apiKey = "3be8af6ebf124ffe81d90f514e59856c"
     private var urlString: String = ""
@@ -32,7 +34,6 @@ class DetailGameTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         imageView.image = self.image
         tableView.delegate = self
         tableView.dataSource = self
@@ -43,31 +44,38 @@ class DetailGameTableViewController: UITableViewController {
             // Fallback on earlier versions
         }
         self.gameName.text = name
-        fetchDetailGamesData(id: id){[weak self] in}
+        fetchDetailGamesData(id: id){[weak self] in} // Fetch the details via API call
         action()
     }
+    
     func action(){
-        print("Favorite Check: ", isFav)
+        print("Favorite Check: ", isFav!)
+        
+        // Determine the button label and action on top right
         if isFav!{
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favourited", style: .plain, target: self, action: #selector(self.unfavorite(_:)))
         }
         else{
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favourite", style: .plain, target: self, action: #selector(self.favorite(_:)))
         }
-        let favoriteTap = UITapGestureRecognizer(target: self, action: #selector(self.favorite(_:)))
-        let unfavoriteTap = UITapGestureRecognizer(target: self, action: #selector(self.unfavorite(_:)))
+        // ---------------------------------------------------
+
+        // Assign actions to the other two labels
         let redditLabelTap = UITapGestureRecognizer(target: self, action: #selector(self.redditLinkLabelTapped(_:)))
         let webSiteLabelTap = UITapGestureRecognizer(target: self, action: #selector(self.webSiteLinkLabelTapped(_:)))
         self.redditLinkLabel.isUserInteractionEnabled = true
         self.redditLinkLabel.addGestureRecognizer(redditLabelTap)
         self.webSiteLinkLabel.isUserInteractionEnabled = true
         self.webSiteLinkLabel.addGestureRecognizer(webSiteLabelTap)
+        // ---------------------------------------------------
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         callBack?(index!,isFav ?? false)
     }
     
+    // Open swift.com if tapped to the reddit link or the website link
     @objc func redditLinkLabelTapped(_ sender: UITapGestureRecognizer) {
         print("Reddit Link Tapped!")
         guard let url = URL(string: "https://www.swift.org") else { return }
@@ -78,6 +86,9 @@ class DetailGameTableViewController: UITableViewController {
         guard let url = URL(string: "https://www.swift.org") else { return }
         UIApplication.shared.open(url)
     }
+    // ---------------------------------------------------------------
+    
+    // Change the button label and action if clicked
     @objc func favorite(_ sender: UITapGestureRecognizer) {
         print("Favorited!")
         isFav = true
@@ -85,7 +96,7 @@ class DetailGameTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem?.action = #selector(self.unfavorite(_:))
         let tabbar = self.tabBarController as! BaseUITabBarController?
         tabbar?.favoriteGamesList![self.index!] = true
-        print("Favorite Check: ", isFav)
+        print("Favorite Check: ", isFav!)
     }
     @objc func unfavorite(_ sender: UITapGestureRecognizer) {
         print("Unfavorited!")
@@ -94,41 +105,52 @@ class DetailGameTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem?.action = #selector(self.favorite(_:))
         let tabbar = self.tabBarController as! BaseUITabBarController?
         tabbar?.favoriteGamesList![self.index!] = false
-        print("Favorite Check: ", isFav)
+        print("Favorite Check: ", isFav!)
     }
+    // ----------------------------------------------
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 1 // Only one section
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 4 // Only four rows
     }
     
+    // Fetch and assign the game details via API call
     func fetchDetailGamesData(id: Int,completion: @escaping () -> ()){
         let gamesUrl = "https://api.rawg.io/api/games/"+id.description+"?key="+apiKey
         // weak self - prevent retain cycles
         print("Fetching detail games data..")
-        apiService.getDetailGamesData(gamesUrl: gamesUrl) { [weak self] (result) in
+        apiService.getDetailGamesData(gamesUrl: gamesUrl) { [weak self] (result) in // API Call
             switch result {
-            case .success(let listOf):
+            case .success(let listOf): // If successful
+                
+                // Fill the cell with corresponding data
                 self?.detailText.text = listOf.description?.HtmlToString
                 guard let posterString = listOf.background_image else {return}
                 self?.urlString = posterString
+                
+                // Try to get the image via API call, fill with placeholder if it fails
                 guard let posterImageURL = URL(string: self!.urlString) else {
                     self?.imageView.image = UIImage(systemName: "gamecontroller.fill")
                     return
                 }
-                self?.getImageDataFrom(url: posterImageURL)
+                self?.getImageDataFrom(url: posterImageURL) // API Call
+                // --------------------------------------------------------------------
+                
             case .failure(let error):
                 // Something is wrong with the JSON file or the model
                 print("Error processing json data: \(error)")
             }
         }
     }
+    
+    // Get the game image via API call and assign it
     func getImageDataFrom(url: URL) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             // Handle Error
@@ -152,6 +174,7 @@ class DetailGameTableViewController: UITableViewController {
     }
 }
     
+// Extend the String object to include a method to convert HTML to string
 extension String {
     var HtmlToString: String? {
         guard let data = data(using: .utf8) else { return nil }
