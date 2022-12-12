@@ -147,22 +147,28 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
     // Called when the client swipes a game to the left
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        
+        // Bind function to the action of sliding
         let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: @escaping (Bool) -> ()) in
+            
+            // Ask the user if they are sure and perform depending on the answer
             let alert = UIAlertController(title: "Remove from favorites?", message: "Are you sure you want to remove this game from favorites?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alertAction) in
                 actionPerformed(false)
             }))
+            
+            // If the user clicks 'Delete'
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (alertAction) in
                 tableView.beginUpdates()
-                let deletedId = self.gameViewModel.getGames()[indexPath.row].id
-                self.gameViewModel.removeGame(index: indexPath.row)
-                for (i, game) in self.targetgGames.enumerated(){
-                        if game.id == deletedId{
-                            self.favoriteGamesList![i] = false
+                let deletedId = self.gameViewModel.getGames()[indexPath.row].id // Get id of the item to be deleted
+                self.gameViewModel.removeGame(index: indexPath.row) // Remove from current table
+                for (i, game) in self.targetgGames.enumerated(){ // For every game in the global targetGames
+                        if game.id == deletedId{ // If the id matches
+                            self.favoriteGamesList![i] = false // Unfavorite
                             break
                         }
                     }
+                
+                // Update the tab bar to have the latest favoriteGamesList
                 let tabbar = self.tabBarController as! BaseUITabBarController?
                 tabbar?.favoriteGamesList = self.favoriteGamesList
                 if(self.gameViewModel.getCount() != 0){
@@ -174,23 +180,31 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
                 tableView.endUpdates()
                 actionPerformed(true)
             }))
+            // -----------------------------------------------------------------
+            
             self.present(alert, animated: true)
         }
         return UISwipeActionsConfiguration(actions: [delete])
     }
+    
+    // Called when the client clicks a game in the table
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier:
         "DetailGameTableViewController") as?
-            DetailGameTableViewController{
-            let temp = gameViewModel.getGames()
-            var i = 0
-            for game in targetgGames{
-                if game.id == temp[indexPath.row].id {
+            DetailGameTableViewController{ // Set the view controller to pass to
+            let temp = gameViewModel.getGames() // Get the games in the current table
+            for (i, game) in targetgGames.enumerated(){
+                if game.id == temp[indexPath.row].id { // When the clicked game is found
+                    
+                    // Data transfer
                     vc.id = targetgGames[i].id!
                     vc.index = i
-                    vc.image = images![indexPath.row] // images is limited with current game count.
+                    vc.image = images![indexPath.row]
                     vc.name = targetgGames[i].name
                     vc.isFav = favoriteGamesList?[i]
+                    // -----------------------------
+                    
+                    // Update favoriteGamesList when returning to the games screen
                     vc.callBack = { (index: Int,isFav: Bool) in
                         self.favoriteGamesList?[index] = isFav
                         let tabbar = self.tabBarController as! BaseUITabBarController?
@@ -198,7 +212,6 @@ extension FavoritesViewController: UITableViewDataSource,  UITableViewDelegate{
                    }
                     break
                 }
-                i+=1
             }
             self.navigationController?.pushViewController(vc,animated:true)
         }

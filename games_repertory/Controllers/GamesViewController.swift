@@ -155,8 +155,7 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
         "DetailGameTableViewController") as?
             DetailGameTableViewController{ // Set the view controller to pass to
             let temp = gameViewModel.getGames() // Get the games in the current table
-            var i = 0
-            for game in targetgGames{
+            for (i, game) in targetgGames.enumerated(){
                 if game.id == temp[indexPath.row].id { // When the clicked game is found
                     
                     // Data transfer
@@ -175,7 +174,6 @@ extension GamesViewController: UITableViewDataSource,  UITableViewDelegate{
                    }
                     break
                 }
-                i+=1
             }
             self.navigationController?.pushViewController(vc,animated:true)
         }
